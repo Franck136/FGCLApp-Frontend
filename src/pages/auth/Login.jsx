@@ -137,7 +137,7 @@ export default function Login() {
 
           {/* Footer card */}
           <p className="text-center text-xs text-[#3A5070] mt-8">
-            Accès réservé au personnel FGCL SARL
+            Accès réservé au personnel & partenaires FGCL SARL 
           </p>
         </div>
 

@@ -4,13 +4,16 @@ import api from '../../lib/axios';
 import toast from 'react-hot-toast';
 
 const NAV_ITEMS = [
-  { path: '/dashboard',     label: 'Tableau de bord', icon: '⬛', roles: ['admin', 'commercial', 'technicien'] },
+  { path: '/dashboard',     label: 'Tableau de bord', icon: '⬛', roles: ['admin', 'commercial','technicien'] },
   { path: '/clients',       label: 'Clients',          icon: '🏢', roles: ['admin', 'commercial'] },
   { path: '/contrats',      label: 'Contrats',         icon: '📋', roles: ['admin', 'commercial'] },
   { path: '/interventions', label: 'Interventions',    icon: '🔧', roles: ['admin', 'commercial', 'technicien'] },
   { path: '/equipements',   label: 'Équipements',      icon: '💻', roles: ['admin', 'commercial'] },
   { path: '/techniciens',   label: 'Techniciens',      icon: '👷', roles: ['admin', 'commercial'] },
   { path: '/rapports',      label: 'Rapports',         icon: '📊', roles: ['admin', 'commercial'] },
+  { path: '/mon-planning',      label: 'Mon planning',     icon: '📅', roles: ['technicien'] },
+  { path: '/mes-statistiques',  label: 'Mes statistiques', icon: '📈', roles: ['technicien'] },
+  { path: '/MonProfil',    label: 'Mon profil',       icon: '👤', roles:  ['technicien'] },
 ];
 
 export default function Sidebar() {
@@ -26,6 +29,7 @@ export default function Sidebar() {
     navigate('/login');
   };
 
+  //Filtre par role
   const visibleItems = NAV_ITEMS.filter(n => n.roles.includes(user?.role));
 
   return (
@@ -70,7 +74,7 @@ export default function Sidebar() {
           </div>
           <div className="flex-1 min-w-0">
             <div className="text-xs font-semibold text-white truncate">
-              {user?.prenom} {user?.nom}
+              {user?.prenom} {user?.nom} 
             </div>
             <div className="text-xs text-[#6B84AA] capitalize">{user?.role}</div>
           </div>

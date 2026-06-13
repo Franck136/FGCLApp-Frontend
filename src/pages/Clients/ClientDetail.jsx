@@ -104,6 +104,9 @@ export default function ClientDetail() {
           <div style={{ color: '#6B84AA', fontSize: 13 }}>
             {client.secteur_activite} · {client.ville}
           </div>
+          <div style={{ color: '#6B84AA', fontSize: 13 }}>
+           Debut relation :  {client.date_debut_relation}
+          </div>
         </div>
         <span style={{
           marginLeft: 'auto',

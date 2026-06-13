@@ -42,6 +42,7 @@ function ClientModal({ client, onClose, onSaved }) {
     telephone_contact2:    client?.telephone_contact2    || '',
     email_contact2:        client?.email_contact2        || '',
     statut:                client?.statut                || 'actif',
+    date_debut_relation:   client?.date_debut_relation   || '',
   });
 
   const set = (k) => (e) => setForm(f => ({ ...f, [k]: e.target.value }));
@@ -190,7 +191,7 @@ function ClientModal({ client, onClose, onSaved }) {
           <div style={grid2}>
             <div>
               <label style={labelStyle}>Nom & Prénom *</label>
-              <input style={inputStyle} value={form.nom_responsable} onChange={set('nom_responsable')} placeholder="Ex: Jean DUPONT" />
+              <input style={inputStyle} value={form.nom_responsable} onChange={set('nom_responsable')} placeholder="Ex: Mourabak alla" />
             </div>
             <div>
               <label style={labelStyle}>Poste / Fonction</label>
@@ -229,14 +230,28 @@ function ClientModal({ client, onClose, onSaved }) {
         </div>
 
         {/* Statut */}
-        <div style={{ marginBottom: 24 }}>
+        <div style={grid2}>
+            <div style={{ marginBottom: 24 }}>
+                <label style={labelStyle}>Statut</label>
+          <select style={{ ...inputStyle, width: 200 }} value={form.statut} onChange={set('statut')}>
+            <option value="actif">Actif</option>
+            <option value="inactif">Inactif</option>
+            <option value="suspendu">Suspendu</option>
+          </select>
+            </div>
+            <div>
+              <label style={labelStyle}>Date debut Relation</label>
+              <input style={inputStyle} type = "date" value={form.date_debut_relation} onChange={set('date_debut_relation')} />
+            </div>
+        </div>
+        {/* <div style={{ marginBottom: 24 }}>
           <label style={labelStyle}>Statut</label>
           <select style={{ ...inputStyle, width: 200 }} value={form.statut} onChange={set('statut')}>
             <option value="actif">Actif</option>
             <option value="inactif">Inactif</option>
             <option value="suspendu">Suspendu</option>
           </select>
-        </div>
+        </div> */}
 
         {/* Boutons */}
         <div style={{ display: 'flex', gap: 12, justifyContent: 'flex-end' }}>
