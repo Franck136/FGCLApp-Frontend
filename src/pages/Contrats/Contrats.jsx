@@ -444,7 +444,7 @@ export default function Contrats() {
                   <td style={{ padding: '11px 14px' }}><Badge statut={c.statut} /></td>
                   <td style={{ padding: '11px 14px' }}>
                     <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-                      <button onClick={() => navigate(`/contrats/${c.id}`)} style={{
+                      <button onClick={() => navigate(`/app/contrats/${c.id}`)} style={{
                         background: '#1D6FA422', border: 'none', borderRadius: 6,
                         padding: '4px 10px', color: '#2589C8', fontSize: 11, cursor: 'pointer',
                       }}>Voir</button>

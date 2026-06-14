@@ -182,7 +182,7 @@ export default function InterventionDetail() {
 
       {/* Header */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
-        <button onClick={() => navigate('/interventions')} style={{
+        <button onClick={() => navigate('/app/interventions')} style={{
           background: '#101F3A', border: '1px solid #1C3560',
           borderRadius: 8, padding: '8px 14px',
           color: '#6B84AA', fontSize: 13, cursor: 'pointer',
@@ -269,7 +269,7 @@ export default function InterventionDetail() {
             <InfoRow label="Téléphone"      value={intervention.client?.telephone} />
             <InfoRow label="Contact"        value={intervention.client?.nom_responsable} />
             <button
-              onClick={() => navigate(`/clients/${intervention.client_id}`)}
+              onClick={() => navigate(`/app/clients/${intervention.client_id}`)}
               style={{
                 background: '#1D6FA422', border: 'none', borderRadius: 6,
                 padding: '6px 14px', color: '#2589C8', fontSize: 12,
@@ -282,7 +282,7 @@ export default function InterventionDetail() {
               <InfoRow label="Référence" value={intervention.contrat.reference} />
               <InfoRow label="Type"      value={intervention.contrat.type_contrat?.replace(/_/g, ' ')} />
               <button
-                onClick={() => navigate(`/contrats/${intervention.contrat_id}`)}
+                onClick={() => navigate(`app/contrats/${intervention.contrat_id}`)}
                 style={{
                   background: '#F0A50022', border: 'none', borderRadius: 6,
                   padding: '6px 14px', color: '#F0A500', fontSize: 12,

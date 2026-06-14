@@ -3,6 +3,11 @@ import { useParams, useNavigate } from 'react-router-dom';
 import api from '../../lib/axios';
 import toast from 'react-hot-toast';
 
+//Regler la date
+const formatDate = (dateString) => {
+    return new Date(dateString).toLocaleDateString('fr-FR');
+};
+
 function InfoRow({ label, value }) {
   return (
     <div style={{ marginBottom: 12 }}>
@@ -92,7 +97,7 @@ export default function ClientDetail() {
 
       {/* Header */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-        <button onClick={() => navigate('/clients')} style={{
+        <button onClick={() => navigate('/app/clients')} style={{
           background: '#101F3A', border: '1px solid #1C3560',
           borderRadius: 8, padding: '8px 14px',
           color: '#6B84AA', fontSize: 13, cursor: 'pointer',
@@ -105,7 +110,7 @@ export default function ClientDetail() {
             {client.secteur_activite} · {client.ville}
           </div>
           <div style={{ color: '#6B84AA', fontSize: 13 }}>
-           Debut relation :  {client.date_debut_relation}
+           Debut relation :  {formatDate(client.date_debut_relation)}
           </div>
         </div>
         <span style={{
@@ -184,8 +189,8 @@ export default function ClientDetail() {
                 <tr key={c.id} style={{ borderBottom: '1px solid #1C356022' }}>
                   <td style={{ padding: '10px 12px', color: '#2589C8', fontSize: 13, fontWeight: 600 }}>{c.reference}</td>
                   <td style={{ padding: '10px 12px', color: '#6B84AA', fontSize: 13 }}>{c.type_contrat}</td>
-                  <td style={{ padding: '10px 12px', color: '#6B84AA', fontSize: 13 }}>{c.date_debut}</td>
-                  <td style={{ padding: '10px 12px', color: '#6B84AA', fontSize: 13 }}>{c.date_fin}</td>
+                  <td style={{ padding: '10px 12px', color: '#6B84AA', fontSize: 13 }}>{formatDate(c.date_debut)}</td>
+                  <td style={{ padding: '10px 12px', color: '#6B84AA', fontSize: 13 }}>{formatDate(c.date_fin)}</td>
                   <td style={{ padding: '10px 12px' }}>
                     <span style={{
                       background: c.statut === 'actif' ? '#1A3A2A' : '#3A1A1A',

@@ -3,6 +3,11 @@ import { useParams, useNavigate } from 'react-router-dom';
 import api from '../../lib/axios';
 import toast from 'react-hot-toast';
 
+
+const formatDate = (dateString) => {
+    return new Date(dateString).toLocaleDateString('fr-FR');
+};
+
 function InfoRow({ label, value }) {
   return (
     <div style={{ marginBottom: 12 }}>
@@ -165,7 +170,7 @@ export default function ContratDetail() {
 
       {/* Header */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
-        <button onClick={() => navigate('/contrats')} style={{
+        <button onClick={() => navigate('/app/contrats')} style={{
           background: '#101F3A', border: '1px solid #1C3560',
           borderRadius: 8, padding: '8px 14px',
           color: '#6B84AA', fontSize: 13, cursor: 'pointer',
@@ -224,7 +229,7 @@ export default function ContratDetail() {
               Ce contrat expire dans {jours} jour(s)
             </div>
             <div style={{ color: '#6B84AA', fontSize: 12, marginTop: 2 }}>
-              Date d'expiration : {contrat.date_fin}
+              Date d'expiration : {formatDate(contrat.date_fin)}
               {contrat.renouvellement_auto && ' · Renouvellement automatique activé'}
             </div>
           </div>
@@ -237,9 +242,9 @@ export default function ContratDetail() {
         <Card title="Informations du contrat">
           <InfoRow label="Référence"      value={contrat.reference} />
           <InfoRow label="Type"           value={contrat.type_contrat?.replace(/_/g, ' ')} />
-          <InfoRow label="Date signature" value={contrat.date_signature} />
-          <InfoRow label="Date début"     value={contrat.date_debut} />
-          <InfoRow label="Date fin"       value={contrat.date_fin} />
+          <InfoRow label="Date signature" value={formatDate(contrat.date_signature)} />
+          <InfoRow label="Date début"     value={formatDate(contrat.date_debut)} />
+          <InfoRow label="Date fin"       value={formatDate(contrat.date_fin)} />
           <InfoRow label="Durée"          value={contrat.duree_mois ? `${contrat.duree_mois} mois` : '—'} />
           <InfoRow label="Renouvellement auto" value={contrat.renouvellement_auto ? 'Oui' : 'Non'} />
           <InfoRow label="Version PDF"    value={contrat.pdf_version ? `v${contrat.pdf_version}` : '—'} />
@@ -252,7 +257,7 @@ export default function ContratDetail() {
             <InfoRow label="Ville"          value={contrat.client?.ville} />
             <InfoRow label="Téléphone"      value={contrat.client?.telephone} />
             <button
-              onClick={() => navigate(`/clients/${contrat.client_id}`)}
+              onClick={() => navigate(`/app/clients/${contrat.client_id}`)}
               style={{
                 background: '#1D6FA422', border: 'none', borderRadius: 6,
                 padding: '6px 14px', color: '#2589C8', fontSize: 12,

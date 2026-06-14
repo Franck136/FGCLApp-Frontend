@@ -417,7 +417,7 @@ export default function Interventions() {
                 <td style={{ padding: '11px 12px' }}><Badge statut={inv.statut} /></td>
                 <td style={{ padding: '11px 12px' }}>
                   <div style={{ display: 'flex', gap: 6 }}>
-                    <button onClick={() => navigate(`/interventions/${inv.id}`)} style={{
+                    <button onClick={() => navigate(`/app/interventions/${inv.id}`)} style={{
                       background: '#1D6FA422', border: 'none', borderRadius: 6,
                       padding: '4px 10px', color: '#2589C8', fontSize: 11, cursor: 'pointer',
                     }}>Voir</button>

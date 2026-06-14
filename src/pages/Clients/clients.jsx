@@ -426,7 +426,7 @@ export default function Clients() {
                 <td style={{ padding: '12px 16px' }}>
                   <div style={{ display: 'flex', gap: 8 }}>
                     <button
-                      onClick={() => navigate(`/clients/${c.id}`)}
+                      onClick={() => navigate(`/app/clients/${c.id}`)}
                       style={{
                         background: '#1D6FA422', border: 'none', borderRadius: 6,
                         padding: '5px 12px', color: '#2589C8', fontSize: 12, cursor: 'pointer',

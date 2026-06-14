@@ -5,6 +5,12 @@ import {
   Tooltip, ResponsiveContainer
 } from 'recharts';
 
+
+//Regler la date
+const formatDate = (dateString) => {
+    return new Date(dateString).toLocaleDateString('fr-FR');
+};
+
 // ── Composants UI ──
 function StatCard({ label, value, delta, color, icon }) {
   return (
