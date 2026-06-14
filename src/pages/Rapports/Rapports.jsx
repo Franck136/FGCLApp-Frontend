@@ -284,11 +284,11 @@ export default function Rapports() {
         borderRadius: 10, padding: '14px 20px',
         display: 'flex', alignItems: 'center', gap: 12,
       }}>
-        <span style={{ fontSize: 18 }}>ℹ️</span>
+        {/* <span style={{ fontSize: 18 }}>ℹ️</span>
         <div style={{ color: '#6B84AA', fontSize: 13 }}>
           Les rapports sont générés en temps réel depuis les données de la plateforme et téléchargés au format PDF.
           Assurez-vous que les vues Blade Laravel sont configurées dans <code style={{ color: '#2589C8' }}>resources/views/rapports/</code>.
-        </div>
+        </div> */}
       </div>
     </div>
   );

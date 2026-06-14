@@ -3,17 +3,45 @@ import useAuthStore from '../../store/authStore';
 import api from '../../lib/axios';
 import toast from 'react-hot-toast';
 
+// const NAV_ITEMS = [
+//   { path: '/dashboard',     label: 'Tableau de bord', icon: '⬛', roles: ['admin', 'commercial','technicien'] },
+//   { path: '/clients',       label: 'Clients',          icon: '🏢', roles: ['admin', 'commercial'] },
+//   { path: '/contrats',      label: 'Contrats',         icon: '📋', roles: ['admin', 'commercial'] },
+//   { path: '/interventions', label: 'Interventions',    icon: '🔧', roles: ['admin', 'commercial', 'technicien'] },
+//   { path: '/equipements',   label: 'Équipements',      icon: '💻', roles: ['admin', 'commercial'] },
+//   { path: '/techniciens',   label: 'Techniciens',      icon: '👷', roles: ['admin', 'commercial'] },
+//   { path: '/rapports',      label: 'Rapports',         icon: '📊', roles: ['admin', 'commercial'] },
+//   { path: '/mon-planning',      label: 'Mon planning',     icon: '📅', roles: ['technicien'] },
+//   { path: '/mes-statistiques',  label: 'Mes statistiques', icon: '📈', roles: ['technicien'] },
+//   { path: '/MonProfil',    label: 'Mon profil',       icon: '👤', roles:  ['technicien'] },
+// // Client
+//   { path: '/interventions',     label: 'Mes interventions', icon: '🔧', roles: ['client'] },
+//   { path: '/Clients/contrats',   label: 'Mes contrats',      icon: '📋', roles: ['client'] },
+//   { path: '/Clients/equipements',label: 'Mon parc IT',       icon: '💻', roles: ['client'] },
+//  ];
+
 const NAV_ITEMS = [
-  { path: '/dashboard',     label: 'Tableau de bord', icon: '⬛', roles: ['admin', 'commercial','technicien'] },
-  { path: '/clients',       label: 'Clients',          icon: '🏢', roles: ['admin', 'commercial'] },
-  { path: '/contrats',      label: 'Contrats',         icon: '📋', roles: ['admin', 'commercial'] },
-  { path: '/interventions', label: 'Interventions',    icon: '🔧', roles: ['admin', 'commercial', 'technicien'] },
-  { path: '/equipements',   label: 'Équipements',      icon: '💻', roles: ['admin', 'commercial'] },
-  { path: '/techniciens',   label: 'Techniciens',      icon: '👷', roles: ['admin', 'commercial'] },
-  { path: '/rapports',      label: 'Rapports',         icon: '📊', roles: ['admin', 'commercial'] },
-  { path: '/mon-planning',      label: 'Mon planning',     icon: '📅', roles: ['technicien'] },
-  { path: '/mes-statistiques',  label: 'Mes statistiques', icon: '📈', roles: ['technicien'] },
-  { path: '/MonProfil',    label: 'Mon profil',       icon: '👤', roles:  ['technicien'] },
+  // Tous les rôles
+  { path: '/app/dashboard',         label: 'Tableau de bord',   icon: '⬛', roles: ['admin','commercial','technicien','client'] },
+
+  // Admin + Commercial
+  { path: '/app/clients',           label: 'Clients',           icon: '🏢', roles: ['admin','commercial'] },
+  { path: '/app/contrats',          label: 'Contrats',          icon: '📋', roles: ['admin','commercial'] },
+  { path: '/app/interventions',     label: 'Interventions',     icon: '🔧', roles: ['admin','commercial'] },
+  { path: '/app/equipements',       label: 'Équipements',       icon: '💻', roles: ['admin','commercial'] },
+  { path: '/app/techniciens',       label: 'Techniciens',       icon: '👷', roles: ['admin','commercial'] },
+  { path: '/app/rapports',          label: 'Rapports',          icon: '📊', roles: ['admin','commercial'] },
+
+  // Technicien
+  { path: '/app/interventions',     label: 'Mes interventions', icon: '🔧', roles: ['technicien'] },
+  { path: '/app/mon-planning',      label: 'Mon planning',      icon: '📅', roles: ['technicien'] },
+  { path: '/app/mes-statistiques',  label: 'Mes statistiques',  icon: '📈', roles: ['technicien'] },
+  { path: '/app/mon-profil',        label: 'Mon profil',        icon: '👤', roles: ['technicien'] },
+
+  // Client
+  { path: '/app/interventions',     label: 'Mes interventions', icon: '🔧', roles: ['client'] },
+  { path: '/app/client/contrats',   label: 'Mes contrats',      icon: '📋', roles: ['client'] },
+  { path: '/app/client/equipements',label: 'Mon parc IT',       icon: '💻', roles: ['client'] },
 ];
 
 export default function Sidebar() {
@@ -26,7 +54,7 @@ export default function Sidebar() {
     } catch (_) {}
     logout();
     toast.success('Déconnexion réussie.');
-    navigate('/login');
+    navigate('app/login');
   };
 
   //Filtre par role
@@ -83,7 +111,7 @@ export default function Sidebar() {
             title="Déconnexion"
             className="text-[#6B84AA] hover:text-red-400 transition-colors text-base"
           >
-            ⏻
+            ↩
           </button>
         </div>
       </div>

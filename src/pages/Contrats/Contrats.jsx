@@ -21,6 +21,18 @@ function Badge({ statut }) {
   );
 }
 
+//Regler la date
+//   const formatDate = (dateString) => {
+//     return new Date(dateString).toLocaleDateString('fr-FR', {
+//         day: 'numeric',
+//         month: 'long',
+//         year: 'numeric'
+//     });
+// };
+const formatDate = (dateString) => {
+    return new Date(dateString).toLocaleDateString('fr-FR');
+};
+
 // ── Modal Contrat ──
 function ContratModal({ contrat, clients, onClose, onSaved }) {
   const isEdit = !!contrat;
@@ -416,9 +428,9 @@ export default function Contrats() {
                   <td style={{ padding: '11px 14px', color: '#2589C8', fontSize: 13, fontWeight: 600 }}>{c.reference}</td>
                   <td style={{ padding: '11px 14px', color: '#E8EDF5', fontSize: 13 }}>{c.client?.raison_sociale ?? '—'}</td>
                   <td style={{ padding: '11px 14px', color: '#6B84AA', fontSize: 12 }}>{c.type_contrat?.replace(/_/g, ' ')}</td>
-                  <td style={{ padding: '11px 14px', color: '#6B84AA', fontSize: 12 }}>{c.date_signature}</td>
-                  <td style={{ padding: '11px 14px', color: '#6B84AA', fontSize: 12 }}>{c.date_debut}</td>
-                  <td style={{ padding: '11px 14px', color: '#6B84AA', fontSize: 12 }}>{c.date_fin}</td>
+                  <td style={{ padding: '11px 14px', color: '#6B84AA', fontSize: 12 }}>{formatDate(c.date_signature)}</td>
+                  <td style={{ padding: '11px 14px', color: '#6B84AA', fontSize: 12 }}>{formatDate(c.date_debut)}</td>
+                  <td style={{ padding: '11px 14px', color: '#6B84AA', fontSize: 12 }}>{formatDate(c.date_fin)}</td>
                   <td style={{ padding: '11px 14px' }}>
                     {expireBientot ? (
                       <span style={{

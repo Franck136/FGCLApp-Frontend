@@ -110,6 +110,8 @@ export default function ContratDetail() {
     }
   };
 
+  
+
   // Uploader / remplacer le PDF
   const handleUploadPdf = async () => {
     if (!uploadFile) return;

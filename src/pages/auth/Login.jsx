@@ -23,7 +23,8 @@ export default function Login() {
       const res = await api.post('/login', data);
       login(res.data.user, res.data.token);
       toast.success(`Bienvenue, ${res.data.user.prenom} !`);
-      navigate('/dashboard');
+      //Window.location.href = '/app/dashbord';
+      navigate('/app/dashboard');
     } catch (err) {
       const msg = err.response?.data?.message || 'Identifiants incorrects.';
       toast.error(msg);
